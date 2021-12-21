@@ -1,4 +1,4 @@
-# VR_DL_HW4
+# VR_DL_HW4 with Pixel Shuffle Super Resolution
 For VR_DL_HW4
 
 To zip multiple files into one compressed file, use 
