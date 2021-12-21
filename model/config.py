@@ -1,13 +1,19 @@
 # import the necessary packages
 import os
 
-# specify root path to the BSDS500 dataset
+# specify original path to the dataset
+ORIG_INPUT_DATASET = "training_hr_images/training_hr_images/"
+
+# specify root path to the dataset
 ROOT_PATH = "dataset/"
 
 # specify paths to the different splits of the dataset
 TRAIN_SET = os.path.join(ROOT_PATH, "train")
 VAL_SET = os.path.join(ROOT_PATH, "val")
-TEST_SET = os.path.join(ROOT_PATH, "test")
+TEST_SET = "testing_lr_images/testing_lr_images"
+
+# the ratio of validation images to the number of images
+VAL_RATIO = 0.1
 
 # specify the initial size of the images and downsampling factor
 ORIG_SIZE = (300, 300)
