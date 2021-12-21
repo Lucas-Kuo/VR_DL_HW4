@@ -10,7 +10,7 @@ ROOT_PATH = "dataset/"
 # specify paths to the different splits of the dataset
 TRAIN_SET = os.path.join(ROOT_PATH, "train")
 VAL_SET = os.path.join(ROOT_PATH, "val")
-TEST_SET = "testing_lr_images/testing_lr_images"
+TEST_SET = "testing_lr_images/testing_lr_images/"
 
 # the ratio of validation images to the number of images
 VAL_RATIO = 0.1
