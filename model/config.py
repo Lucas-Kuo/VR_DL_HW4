@@ -31,3 +31,4 @@ LR = 1e-3
 SUPER_RES_MODEL = os.path.join("output", "super_res_model")
 TRAINING_PLOT = os.path.join("output", "training.png")
 VISUALIZATION_PATH = os.path.join("output", "visualizations")
+ANSWER_PATH = "answer/"
