@@ -1,5 +1,6 @@
-# USAGE
-# python3 train.py
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-# USAGE
+# python train.py
 
 # import the necessary packages
 from model.data_utils import process_input
