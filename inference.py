@@ -4,7 +4,7 @@
 # python generate_super_res.py
 
 # import the necessary packages
-from pyimagesearch import config
+from model import config
 from PIL import Image
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.models import load_model
