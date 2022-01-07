@@ -66,19 +66,21 @@ def postprocess_image(y, cb, cr):
 	y = clip_numpy(y).squeeze()
 	y = y.reshape(y.shape[0], y.shape[1])
 	y = Image.fromarray(y, mode="L")
+	
 	# resize the other channels of the image to match the original
 	# dimension
 	outputCB= cb.resize(y.size, Image.BICUBIC)
 	outputCR= cr.resize(y.size, Image.BICUBIC)
+	
 	# merge the resized channels altogether and return it as a numpy
 	# array
 	final = Image.merge("YCbCr", (y, outputCB, outputCR)).convert("RGB")
 	return np.array(final)
 
-# load the test image paths from disk and select ten paths randomly
+# load the test image paths from disk
 print("[INFO] loading test images...")
 testPaths = list(paths.list_images(config.TEST_SET))
-currentTestPaths = np.random.choice(testPaths, 10)
+
 # load our super-resolution model from disk
 print("[INFO] loading model...")
 superResModel = load_model(config.SUPER_RES_MODEL,
@@ -86,7 +88,7 @@ superResModel = load_model(config.SUPER_RES_MODEL,
 
 # iterate through our test image paths
 print("[INFO] performing predictions...")
-for (i, path) in enumerate(currentTestPaths):
+for (i, path) in enumerate(testPaths):
 	# grab the original and the downsampled images from the
 	# current path
 	(orig, downsampled) = load_image(path)
@@ -106,10 +108,10 @@ for (i, path) in enumerate(currentTestPaths):
 	imwrite(path, finalOutput)
 	
 	# visualize the results and save them to disk
-	path = os.path.join(config.VISUALIZATION_PATH, f"{i}_viz.png")
+	path = os.path.join(config.VISUALIZATION_PATH, f"{path[:-4]}_viz.png")
 	(fig, (ax1, ax2)) = plt.subplots(ncols=2, figsize=(12, 12))
 	ax1.imshow(naiveResizing)
 	ax2.imshow(finalOutput.astype("int"))
 	ax1.set_title("Original")
 	ax2.set_title("Super-res Model")
-	# fig.savefig(path, dpi=300, bbox_inches="tight")
+	fig.savefig(path, dpi=300, bbox_inches="tight")
