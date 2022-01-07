@@ -104,8 +104,9 @@ for (i, path) in enumerate(testPaths):
 	# naiveResizing = downsampled.resize(orig.size, Image.BICUBIC)
 	
 	# save the answer
-	path =  os.path.join(config.ANSWER_PATH, f"{path[:-4]}_pred.png") # trim off the .xxx of path
-	imwrite(path, finalOutput)
+	save_path =  os.path.join(config.ANSWER_PATH, f"{path[:-4]}_pred.png") # trim off the .xxx of path
+	predict_img = Image.fromarray(finalOutput)
+	predict_img.save(save_path)
 	
 	# visualize the results and save them to disk
 	path = os.path.join(config.VISUALIZATION_PATH, f"{path[:-4]}_viz.png")
