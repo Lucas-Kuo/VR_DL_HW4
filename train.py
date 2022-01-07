@@ -9,6 +9,7 @@ from model import subpixel_net
 from imutils import paths
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import os
 
 def psnr(orig, pred):
 	# cast the target images to integer
