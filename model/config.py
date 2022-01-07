@@ -26,7 +26,7 @@ BATCH_SIZE = 8
 EPOCHS = 100
 LR = 1e-3
 
-#define paths to serialize trained model, training history plot, and
+# define paths to serialize trained model, training history plot, and
 # path to our inference visualizations
 SUPER_RES_MODEL = os.path.join("output", "super_res_model")
 TRAINING_PLOT = os.path.join("output", "training.png")
