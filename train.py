@@ -7,6 +7,7 @@ from model.data_utils import process_input
 from model import config
 from model import subpixel_net
 from imutils import paths
+from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import os
@@ -45,10 +46,17 @@ valDS = valDS.map(process_input,
 				  num_parallel_calls=AUTO).batch(
 	config.BATCH_SIZE).prefetch(AUTO)
 
-# initialize, compile, and train the model
-print("[INFO] initializing and training model...")
-model = subpixel_net.get_subpixel_net()
-model.compile(optimizer="adam", loss="mse", metrics=psnr)
+if not os.path.exists(config.OUT_DIR):
+	# initialize, compile
+	print("[INFO] initializing and training model...")
+	model = subpixel_net.get_subpixel_net()
+	model.compile(optimizer="adam", loss="mse", metrics=psnr)
+else:
+	# load model from previous checkpoint
+	print("[INFO] loading previous checkpoint...")
+	model = load_model(config.SUPER_RES_MODEL, custom_objects={"psnr" : psnr})
+
+# train the model
 H = model.fit(trainDS, validation_data=valDS, epochs=config.EPOCHS)
 
 # create output directory if not exists
