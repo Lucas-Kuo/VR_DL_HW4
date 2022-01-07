@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
 from cv2 import imwrite
+import os
  
 def psnr(orig, pred):
 	# cast the target images to integer
