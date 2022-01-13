@@ -1,6 +1,6 @@
 # VR_DL_HW4 
 
-To reproduce my result, it's easier to follow the inference.ipynb notebook and execute the cells one by one in order. Or just follow the instructions below.
+To reproduce my result, it's easier to follow the [inference.ipynb](https://github.com/Lucas-Kuo/VR_DL_HW4/blob/main/inference.ipynb) notebook and execute the cells one by one in order. Or just follow the instructions below.
 
 [Here](https://drive.google.com/file/d/1qiNNz4Px3KYJclDy0IZNu_y-HrQERQ8W/view?usp=sharing) is the link to my final model.
 
