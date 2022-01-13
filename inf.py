@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# USAGE
-# python generate_super_res.py
+
 # import the necessary packages
 from model import config
 from PIL import Image
