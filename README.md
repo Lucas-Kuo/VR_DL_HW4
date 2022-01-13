@@ -8,6 +8,6 @@ First, you should clone the [repo](https://github.com/krasserm/super-resolution)
 
 Second, download the [model link](https://drive.google.com/file/d/1qiNNz4Px3KYJclDy0IZNu_y-HrQERQ8W/view?usp=sharing) to the repo directory.
 
-Third, create a folder called `ans` and run inference.py with `python3 inference.py`
+Third, create a folder called `ans` and run [inference.py](https://github.com/Lucas-Kuo/VR_DL_HW4/blob/main/inference.py) with `python3 inference.py`
 
 Finally, you should have the result images in the `ans` folder.
